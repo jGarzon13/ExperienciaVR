@@ -28,7 +28,7 @@
       <!-- Camera entity with images attached -->
       <a-entity id="camera" camera position="0 1.6 0" wasd-controls look-controls follow-terrain>
         <!-- Raycaster to detect collisions -->
-        <a-entity raycaster="objects: .collidable; far: 1"></a-entity>
+        <a-entity raycaster="objects: .collidable; far: 1.5"></a-entity>
         <!-- Image entities attached to the camera (initially hidden) -->
         <a-image id="image1-display" src="#image1" position="0 0 -1" visible="false" material="depthTest: false; renderOrder: 1;" width="1.3" height="1.6"></a-image>
         <a-image id="image2-display" src="#image2" position="0 0 -1" visible="false" material="depthTest: false; renderOrder: 1;" width="1.3" height="1.6"></a-image>
@@ -39,12 +39,24 @@
       </a-entity>
       
       <!-- Objects to collide with -->
-      <a-entity id="collidable1" class="collidable" gltf-model="#book-stand" rotation="0 0 0" position="-7.527 -0.044 0.320" scale="1 1 1" collision-detect="image: #image1-display"></a-entity>
-      <a-entity id="collidable2" class="collidable" gltf-model="#book-stand" rotation="0 -23.080 0" position="-5.871 0.029 -4.621" scale="1 1 1" collision-detect="image: #image2-display"></a-entity>
-      <a-entity id="collidable3" class="collidable" gltf-model="#book-stand" rotation="0 80 0" position="-1.550 -0.027 6.752" scale="1 1 1" collision-detect="image: #image3-display"></a-entity>
-      <a-entity id="collidable4" class="collidable" gltf-model="#book-stand" rotation="0 100 0" position="3 -0.037 6.877" scale="1 1 1" collision-detect="image: #image4-display"></a-entity>
-      <a-entity id="collidable5" class="collidable" gltf-model="#book-stand" rotation="0 -116.52 0" position="4.916 0.157 -4.854" scale="1 1 1" collision-detect="image: #image5-display"></a-entity>
-      <a-entity id="collidable6" class="collidable" gltf-model="#book-stand" rotation="0 180 0" position="7 -0.090 1.450" scale="1 1 1" collision-detect="image: #image6-display"></a-entity>
+      <a-entity id="collidable1" class="collidable" gltf-model="#book-stand" rotation="0 0 0" position="-7.527 -0.044 0.320" scale="1 1 1" collision-detect="image: #image1-display">
+        <a-box position="0 1.5 0" scale="1.5 3 1.5" material="opacity: 0; transparent: true"></a-box>
+      </a-entity>
+      <a-entity id="collidable2" class="collidable" gltf-model="#book-stand" rotation="0 -23.080 0" position="-5.871 0.029 -4.621" scale="1 1 1" collision-detect="image: #image2-display">
+        <a-box position="0 1.5 0" scale="1.5 3 1.5" material="opacity: 0; transparent: true"></a-box>
+      </a-entity>
+      <a-entity id="collidable3" class="collidable" gltf-model="#book-stand" rotation="0 80 0" position="-1.550 -0.027 6.752" scale="1 1 1" collision-detect="image: #image3-display">
+        <a-box position="0 1.5 0" scale="1.5 3 1.5" material="opacity: 0; transparent: true"></a-box>
+      </a-entity>
+      <a-entity id="collidable4" class="collidable" gltf-model="#book-stand" rotation="0 100 0" position="3 -0.037 6.877" scale="1 1 1" collision-detect="image: #image4-display">
+        <a-box position="0 1.5 0" scale="1.5 3 1.5" material="opacity: 0; transparent: true"></a-box>
+      </a-entity>
+      <a-entity id="collidable5" class="collidable" gltf-model="#book-stand" rotation="0 -116.52 0" position="4.916 0.157 -4.854" scale="1 1 1" collision-detect="image: #image5-display">
+        <a-box position="0 1.5 0" scale="1.5 3 1.5" material="opacity: 0; transparent: true"></a-box>
+      </a-entity>
+      <a-entity id="collidable6" class="collidable" gltf-model="#book-stand" rotation="0 180 0" position="7 -0.090 1.450" scale="1 1 1" collision-detect="image: #image6-display">
+        <a-box position="0 1.5 0" scale="1.5 3 1.5" material="opacity: 0; transparent: true"></a-box>
+      </a-entity>
     </a-scene>
 
     <script>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Experiencia VR</title>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+  </head>
+  <body>
+    <a-scene>
+      <a-assets>
+        <a-asset-item id="my-model" src="EscenaAgua.glb"></a-asset-item>
+        <a-asset-item id="book-stand" src="Modelos/stand.glb"></a-asset-item>
+        <img id="image1" src="Posters/1.jpg" />
+        <img id="image2" src="Posters/2.jpg" />
+        <img id="image3" src="Posters/3.jpg" />
+        <img id="image4" src="Posters/4.jpg" />
+        <img id="image5" src="Posters/5.jpg" />
+        <img id="image6" src="Posters/6.jpg" />
+      </a-assets>
+      
+      <a-entity gltf-model="#my-model" id="terrain" position="0 0 0"></a-entity>
+      
+      <a-sky color="#ECECEC"></a-sky>
+      
+      <a-entity light="type: ambient; color: #FFF"></a-entity>
+      <a-entity light="type: directional; color: #FFF; intensity: 0.5" position="-1 1 0"></a-entity>
+      
+      <!-- Camera entity with images attached -->
+      <a-entity id="camera" camera position="0 1.6 0" wasd-controls look-controls follow-terrain>
+        <!-- Raycaster to detect collisions -->
+        <a-entity raycaster="objects: .collidable; far: 1"></a-entity>
+        <!-- Image entities attached to the camera (initially hidden) -->
+        <a-image id="image1-display" src="#image1" position="0 0 -1" visible="false" material="depthTest: false; renderOrder: 1;" width="1.3" height="1.6"></a-image>
+        <a-image id="image2-display" src="#image2" position="0 0 -1" visible="false" material="depthTest: false; renderOrder: 1;" width="1.3" height="1.6"></a-image>
+        <a-image id="image3-display" src="#image3" position="0 0 -1" visible="false" material="depthTest: false; renderOrder: 1;" width="1.3" height="1.6"></a-image>
+        <a-image id="image4-display" src="#image4" position="0 0 -1" visible="false" material="depthTest: false; renderOrder: 1;" width="1.3" height="1.6"></a-image>
+        <a-image id="image5-display" src="#image5" position="0 0 -1" visible="false" material="depthTest: false; renderOrder: 1;" width="1.3" height="1.6"></a-image>
+        <a-image id="image6-display" src="#image6" position="0 0 -1" visible="false" material="depthTest: false; renderOrder: 1;" width="1.3" height="1.6"></a-image>
+      </a-entity>
+      
+      <!-- Objects to collide with -->
+      <a-entity id="collidable1" class="collidable" gltf-model="#book-stand" rotation="0 0 0" position="-7.527 -0.044 0.320" scale="1 1 1" collision-detect="image: #image1-display"></a-entity>
+      <a-entity id="collidable2" class="collidable" gltf-model="#book-stand" rotation="0 -23.080 0" position="-5.871 0.029 -4.621" scale="1 1 1" collision-detect="image: #image2-display"></a-entity>
+      <a-entity id="collidable3" class="collidable" gltf-model="#book-stand" rotation="0 80 0" position="-1.550 -0.027 6.752" scale="1 1 1" collision-detect="image: #image3-display"></a-entity>
+      <a-entity id="collidable4" class="collidable" gltf-model="#book-stand" rotation="0 100 0" position="3 -0.037 6.877" scale="1 1 1" collision-detect="image: #image4-display"></a-entity>
+      <a-entity id="collidable5" class="collidable" gltf-model="#book-stand" rotation="0 -116.52 0" position="4.916 0.157 -4.854" scale="1 1 1" collision-detect="image: #image5-display"></a-entity>
+      <a-entity id="collidable6" class="collidable" gltf-model="#book-stand" rotation="0 180 0" position="7 -0.090 1.450" scale="1 1 1" collision-detect="image: #image6-display"></a-entity>
+    </a-scene>
+
+    <script>
+      AFRAME.registerComponent('collision-detect', {
+        schema: {
+          image: {type: 'selector'}
+        },
+        init: function () {
+          var imageEl = this.data.image;
+          
+          this.el.addEventListener('raycaster-intersected', () => {
+            imageEl.setAttribute('visible', 'true');
+          });
+          
+          this.el.addEventListener('raycaster-intersected-cleared', () => {
+            imageEl.setAttribute('visible', 'false');
+          });
+        }
+      });
+
+      AFRAME.registerComponent('follow-terrain', {
+        schema: {
+          minX: {type: 'number', default: -10},
+          maxX: {type: 'number', default: 10},
+          minZ: {type: 'number', default: -10},
+          maxZ: {type: 'number', default: 10},
+          heightOffset: {type: 'number', default: 1.6}
+        },
+        tick: function () {
+          var terrain = document.querySelector('#terrain');
+          var camera = this.el;
+          
+          var terrainPosition = terrain.object3D.position;
+          var cameraPosition = camera.object3D.position;
+          
+          // Assuming the terrain is a mesh with a single geometry
+          terrain.object3D.traverse(function (node) {
+            if (node.isMesh) {
+              var raycaster = new THREE.Raycaster();
+              var direction = new THREE.Vector3(0, -1, 0);
+              raycaster.set(camera.object3D.position.clone().setY(terrainPosition.y + 10), direction);
+              var intersects = raycaster.intersectObject(node);
+              if (intersects.length > 0) {
+                var height = intersects[0].point.y;
+                camera.object3D.position.y = height + this.data.heightOffset; // Adjust heightOffset based on desired height above terrain
+              }
+            }
+          }.bind(this));
+
+          // Limit camera position
+          if (cameraPosition.x < this.data.minX) {
+            cameraPosition.x = this.data.minX;
+          }
+          if (cameraPosition.x > this.data.maxX) {
+            cameraPosition.x = this.data.maxX;
+          }
+          if (cameraPosition.z < this.data.minZ) {
+            cameraPosition.z = this.data.minZ;
+          }
+          if (cameraPosition.z > this.data.maxZ) {
+            cameraPosition.z = this.data.maxZ;
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

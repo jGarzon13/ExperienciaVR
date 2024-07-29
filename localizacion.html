@@ -10,6 +10,15 @@
       <a-assets>
         <a-asset-item id="my-model" src="EscenaAgua.glb"></a-asset-item>
         <a-asset-item id="book-stand" src="Modelos/stand.glb"></a-asset-item>
+
+        <a-asset-item id="Modelo1" src="Modelos/Colinegra.glb"></a-asset-item>
+        <a-asset-item id="Modelo2" src="Modelos/GarcitaRayada.glb"></a-asset-item>
+        <a-asset-item id="Modelo3" src="Modelos/PechiRojo.glb"></a-asset-item>
+        <a-asset-item id="Modelo4" src="Modelos/Coquito.glb"></a-asset-item>
+        <a-asset-item id="Modelo5" src="Modelos/Bichofue.glb"></a-asset-item>
+        <a-asset-item id="Modelo6" src="Modelos/BienParado.glb"></a-asset-item>
+
+
         <img id="image1" src="Posters/1.jpg" />
         <img id="image2" src="Posters/2.jpg" />
         <img id="image3" src="Posters/3.jpg" />
@@ -17,65 +26,104 @@
         <img id="image5" src="Posters/5.jpg" />
         <img id="image6" src="Posters/6.jpg" />
         <img id="skyTexture" src="Posters/cielo.jpg">
+
+        <audio id="ambient-sound" src="Audios/Fondo.mp3" loop></audio>
+        <audio id="land-sound" src="Audios/walking-on-grass-70519.mp3"></audio>
+        <audio id="water-sound" src="Audios/touching-the-water-176713.mp3"></audio>
+        <audio id="image1-sound" src="Audios/Colinegra-Cotara chiricote - Aramides cajaneus.mp3"></audio>
+        <audio id="image2-sound" src="Audios/Garcita - Butorides striata.mp3"></audio>
+        <audio id="image3-sound" src="Audios/XC568151 - Vermilion Flycatcher - Pyrocephalus obscurus.mp3"></audio>
+        <audio id="image4-sound" src="Audios/Coquito - Phimosus infuscatus.mp3"></audio>
+        <audio id="image5-sound" src="Audios/Bichofue-Pitangus sulphuratus.wav"></audio>
+        <audio id="image6-sound" src="Audios/BienParadado - Nyctibius griseus.mp3"></audio>
       </a-assets>
+
+      <a-sound src="#ambient-sound" autoplay="true" loop="true"></a-sound>
       
       <a-entity gltf-model="#my-model" id="terrain" position="0 0 0"></a-entity>
       
-      <!-- Cambia el color del cielo por una textura HDRI -->
       <a-sky src="#skyTexture"></a-sky>
       
       <a-entity light="type: ambient; color: #FFF"></a-entity>
       <a-entity light="type: directional; color: #FFF; intensity: 0.5" position="-1 1 0"></a-entity>
       
-      <!-- Camera entity with images attached -->
       <a-entity id="camera" camera position="0 1.6 0" wasd-controls look-controls follow-terrain>
-        <!-- Raycaster to detect collisions -->
         <a-entity raycaster="objects: .collidable; far: 1.5"></a-entity>
-        <!-- Image entities attached to the camera (initially hidden) -->
-        <a-image id="image1-display" src="#image1" position="0 0 -1" visible="false" material="depthTest: false; renderOrder: 1;" width="1.3" height="1.6"></a-image>
-        <a-image id="image2-display" src="#image2" position="0 0 -1" visible="false" material="depthTest: false; renderOrder: 1;" width="1.3" height="1.6"></a-image>
-        <a-image id="image3-display" src="#image3" position="0 0 -1" visible="false" material="depthTest: false; renderOrder: 1;" width="1.3" height="1.6"></a-image>
-        <a-image id="image4-display" src="#image4" position="0 0 -1" visible="false" material="depthTest: false; renderOrder: 1;" width="1.3" height="1.6"></a-image>
-        <a-image id="image5-display" src="#image5" position="0 0 -1" visible="false" material="depthTest: false; renderOrder: 1;" width="1.3" height="1.6"></a-image>
-        <a-image id="image6-display" src="#image6" position="0 0 -1" visible="false" material="depthTest: false; renderOrder: 1;" width="1.3" height="1.6"></a-image>
+        <a-image id="image1-display" src="#image1" position="0 0 -1" visible="false" material="depthTest: false;" width="1.3" height="1.6"></a-image>
+        <a-image id="image2-display" src="#image2" position="0 0 -1" visible="false" material="depthTest: false;" width="1.3" height="1.6"></a-image>
+        <a-image id="image3-display" src="#image3" position="0 0 -1" visible="false" material="depthTest: false;" width="1.3" height="1.6"></a-image>
+        <a-image id="image4-display" src="#image4" position="0 0 -1" visible="false" material="depthTest: false;" width="1.3" height="1.6"></a-image>
+        <a-image id="image5-display" src="#image5" position="0 0 -1" visible="false" material="depthTest: false;" width="1.3" height="1.6"></a-image>
+        <a-image id="image6-display" src="#image6" position="0 0 -1" visible="false" material="depthTest: false;" width="1.3" height="1.6"></a-image>
       </a-entity>
       
-      <!-- Objects to collide with -->
-      <a-entity id="collidable1" class="collidable" gltf-model="#book-stand" rotation="0 0 0" position="-7.527 -0.044 0.320" scale="1 1 1" collision-detect="image: #image1-display">
+      <a-entity id="collidable1" class="collidable" gltf-model="#book-stand" rotation="0 0 0" position="-7.527 -0.044 0.320" scale="1 1 1" collision-detect="image: #image1-display; sound: #image1-sound">
         <a-box position="0 1.5 0" scale="1.5 3 1.5" material="opacity: 0; transparent: true"></a-box>
+        <a-entity gltf-model="#Modelo1" position="0 2.196 -1.471" scale="0.440 0.710 0.590"> </a-entity> 
       </a-entity>
-      <a-entity id="collidable2" class="collidable" gltf-model="#book-stand" rotation="0 -23.080 0" position="-5.871 0.029 -4.621" scale="1 1 1" collision-detect="image: #image2-display">
+      <a-entity id="collidable2" class="collidable" gltf-model="#book-stand" rotation="0 -23.080 0" position="-5.871 0.029 -4.621" scale="1 1 1" collision-detect="image: #image2-display; sound: #image2-sound">
         <a-box position="0 1.5 0" scale="1.5 3 1.5" material="opacity: 0; transparent: true"></a-box>
+        <a-entity gltf-model="#Modelo2" position="0 0.968 0" scale="0.150 0.150 0.150" > </a-entity> 
       </a-entity>
-      <a-entity id="collidable3" class="collidable" gltf-model="#book-stand" rotation="0 80 0" position="-1.550 -0.027 6.752" scale="1 1 1" collision-detect="image: #image3-display">
+      <a-entity id="collidable3" class="collidable" gltf-model="#book-stand" rotation="0 80 0" position="-1.550 -0.027 6.752" scale="1 1 1" collision-detect="image: #image3-display; sound: #image3-sound">
         <a-box position="0 1.5 0" scale="1.5 3 1.5" material="opacity: 0; transparent: true"></a-box>
+        <a-entity gltf-model="#Modelo3" position="0 1.438 -1.244" scale="0.050 0.050 0.100" > </a-entity> 
       </a-entity>
-      <a-entity id="collidable4" class="collidable" gltf-model="#book-stand" rotation="0 100 0" position="3 -0.037 6.877" scale="1 1 1" collision-detect="image: #image4-display">
+      <a-entity id="collidable4" class="collidable" gltf-model="#book-stand" rotation="0 100 0" position="3 -0.037 6.877" scale="1 1 1" collision-detect="image: #image4-display; sound: #image4-sound">
         <a-box position="0 1.5 0" scale="1.5 3 1.5" material="opacity: 0; transparent: true"></a-box>
+        <a-entity gltf-model="#Modelo4" position="0 1.637 0" scale="0.191 0.175 0.297" > </a-entity> 
       </a-entity>
-      <a-entity id="collidable5" class="collidable" gltf-model="#book-stand" rotation="0 -116.52 0" position="4.916 0.157 -4.854" scale="1 1 1" collision-detect="image: #image5-display">
+      <a-entity id="collidable5" class="collidable" gltf-model="#book-stand" rotation="0 -116.52 0" position="4.916 0.157 -4.854" scale="1 1 1" collision-detect="image: #image5-display; sound: #image5-sound">
         <a-box position="0 1.5 0" scale="1.5 3 1.5" material="opacity: 0; transparent: true"></a-box>
+        <a-entity gltf-model="#Modelo5" position="0.058 1.226 0.187"  > </a-entity> 
       </a-entity>
-      <a-entity id="collidable6" class="collidable" gltf-model="#book-stand" rotation="0 180 0" position="7 -0.090 1.450" scale="1 1 1" collision-detect="image: #image6-display">
+      <a-entity id="collidable6" class="collidable" gltf-model="#book-stand" rotation="0 180 0" position="7 -0.090 1.450" scale="1 1 1" collision-detect="image: #image6-display; sound: #image6-sound">
         <a-box position="0 1.5 0" scale="1.5 3 1.5" material="opacity: 0; transparent: true"></a-box>
+        <a-entity gltf-model="#Modelo6" position="0 1.549 0" scale="0.084 0.146 0.070"> </a-entity> 
       </a-entity>
+
     </a-scene>
 
     <script>
+      // Inicialización del contexto de audio después de una interacción del usuario
+      document.addEventListener('click', function () {
+        var audioElements = document.querySelectorAll('audio');
+        audioElements.forEach(function(audio) {
+          if (audio.paused) {
+            audio.play().then(() => {
+              audio.pause();
+              audio.currentTime = 0;
+            }).catch(error => {
+              console.log('Error al inicializar el audio:', error);
+            });
+          }
+        });
+      });
+
       AFRAME.registerComponent('collision-detect', {
         schema: {
-          image: {type: 'selector'}
+          image: {type: 'selector'},
+          sound: {type: 'selector'}
         },
         init: function () {
-          var imageEl = this.data.image;
-          
-          this.el.addEventListener('raycaster-intersected', () => {
-            imageEl.setAttribute('visible', 'true');
-          });
-          
-          this.el.addEventListener('raycaster-intersected-cleared', () => {
-            imageEl.setAttribute('visible', 'false');
-          });
+          this.el.addEventListener('raycaster-intersected', this.onIntersected.bind(this));
+          this.el.addEventListener('raycaster-intersected-cleared', this.onIntersectedCleared.bind(this));
+        },
+        onIntersected: function () {
+          if (this.data.image) {
+            this.data.image.setAttribute('visible', 'true');
+          }
+          if (this.data.sound && this.data.sound.components && this.data.sound.components.sound) {
+            this.data.sound.components.sound.playSound();
+          }
+        },
+        onIntersectedCleared: function () {
+          if (this.data.image) {
+            this.data.image.setAttribute('visible', 'false');
+          }
+          if (this.data.sound && this.data.sound.components && this.data.sound.components.sound) {
+            this.data.sound.components.sound.stopSound();
+          }
         }
       });
 
@@ -87,6 +135,10 @@
           maxZ: {type: 'number', default: 10},
           heightOffset: {type: 'number', default: 1.6}
         },
+        init: function () {
+          this.lastPosition = new THREE.Vector3();
+          this.landSound = document.querySelector('#land-sound');
+        },
         tick: function () {
           var terrain = document.querySelector('#terrain');
           var camera = this.el;
@@ -94,7 +146,6 @@
           var terrainPosition = terrain.object3D.position;
           var cameraPosition = camera.object3D.position;
           
-          // Assuming the terrain is a mesh with a single geometry
           terrain.object3D.traverse(function (node) {
             if (node.isMesh) {
               var raycaster = new THREE.Raycaster();
@@ -103,12 +154,11 @@
               var intersects = raycaster.intersectObject(node);
               if (intersects.length > 0) {
                 var height = intersects[0].point.y;
-                camera.object3D.position.y = height + this.data.heightOffset; // Adjust heightOffset based on desired height above terrain
+                camera.object3D.position.y = height + this.data.heightOffset;
               }
             }
           }.bind(this));
 
-          // Limit camera position
           if (cameraPosition.x < this.data.minX) {
             cameraPosition.x = this.data.minX;
           }
@@ -120,6 +170,13 @@
           }
           if (cameraPosition.z > this.data.maxZ) {
             cameraPosition.z = this.data.maxZ;
+          }
+
+          if (!this.lastPosition.equals(cameraPosition)) {
+            if (this.landSound && this.landSound.components && this.landSound.components.sound) {
+              this.landSound.components.sound.playSound();
+            }
+            this.lastPosition.copy(cameraPosition);
           }
         }
       });

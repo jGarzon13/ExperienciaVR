@@ -1,0 +1,566 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+:root{
+    --azul:#6482AD;
+    --celeste:#7FA1C3;
+    --arena:#E2DAD6;
+    --arenablanca:#F5EDED;
+
+
+    
+}
+*{
+    font-family:'Poppins',sans-serif;
+    text-transform: capitalize;
+    text-decoration: none;
+    outline: none;
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+}
+*::selection{
+    background:var(--celeste) ;
+    color: #fff;
+}
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+}
+
+header{
+    width: 96%;
+    background: var(--arena);
+    position: fixed;
+    top: 2rem; left: 50%;
+    transform: translateX(-50%);
+    border-radius: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    z-index: 1000;
+    transition: .2s;
+}
+.header-active{
+    top:0;
+    width:100%;
+    border-radius: 0;
+    box-shadow:0 .1rem .3rem rgba(0,0,0,.3)
+}
+header .navbar ul{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    list-style: none;
+}
+header .navbar ul li{
+    margin:0 1rem;
+}
+header .navbar ul li a{
+    font-size: 1.5rem;
+    color:var(--azul);
+    transition: .2s;    
+}
+header .navbar ul li .active,
+header .navbar ul li a:hover{
+     color: var(--celeste);
+}
+
+header .logo{
+    font-size: 2.5rem;
+    color:  var(--azul);
+}
+header .logo img {
+    padding: 0 .2rem;
+    width: 7rem; /* Ajusta esta medida según lo grande que quieras el logo */
+    height: auto; /* Esto asegura que la altura se ajuste automáticamente */
+}
+
+
+header .fa-bars{
+    font-size: 3rem;
+    color:  var(--azul);
+    cursor: pointer;
+    display: none;
+    transition: .2s;
+}
+header.fa-times{
+    transform: rotate(180deg);
+    color: var(--celeste);
+    
+}
+
+.home{
+    min-height: 100vh;
+    background: linear-gradient(
+        rgba(100, 130, 173, 0.7), 
+        rgba(127, 161, 195, 0.6), 
+        rgba(226, 218, 214, 0.5), 
+        rgba(245, 237, 237, 0.4)
+      ), url('/Final/Recursos/Background.webp') no-repeat;
+    background-size: cover; 
+    background-position: center;
+    background-attachment: fixed;
+    z-index:0 ;
+    overflow: hidden;
+    position: relative;
+}
+.home .content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
+    padding-top: 14rem;
+    padding-bottom: 8rem;
+    text-align: center;
+}
+.home .content h1{
+    font-size: 5rem;
+    color: #FFFFFF;
+    padding: 0 1rem;
+    text-shadow: 0 .3rem .5rem rgba(0, 0, 0, .3);
+    text-transform: uppercase;
+}
+.home .content p{
+    font-size: 2rem;
+    color: var(--arenablanca);
+    padding: 1rem 25rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+.home .box-container{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.home .box-container .box{
+    height: 39rem;
+    width: 35rem ;
+    background: var(--arenablanca);
+    text-align: center;
+    border-radius: 1rem;
+    box-shadow: 0 .3rem .5rem rgba(0, 0, 0, 0.5);
+    margin:1.5rem ;
+    cursor: pointer;  
+}
+.home .box-container h2 {
+    width: 100%;
+    text-align: center;
+    color: #FFF;
+    font-size: 24px;
+    margin-bottom: 20px; /* Espacio antes de las cajas */
+    text-shadow: 0 .3rem .5rem rgba(0, 0, 0, .3);
+}
+
+
+.box img {
+ height: 6rem;
+ width: 6rem;
+ line-height: 6rem;
+ transition: .2s;
+}
+
+.home .box-container .box h3 {
+    font-size: 2rem;
+    color: var(--azul);
+    transition: .2s;
+    padding: 1.5rem 2rem;
+
+}
+
+.home .box-container .box p {
+    font-size: 1.3rem;
+    padding: 1.5rem 2rem;
+    color: #666; 
+}
+
+.home::before {
+    content: '';
+    position: absolute;
+    bottom: -25rem; /* Ajusta según la posición deseada */
+    left: 50%;
+    transform: translateX(-50%);
+    border-top: 70vh solid var(--arenablanca); /* Corrige la referencia a la variable de color */
+    width: 120%;
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.heading{
+    font-size: 4rem;
+    color: var(--azul);
+    text-align: center;
+    padding: 0 1rem;
+    padding-top: 6rem;
+    letter-spacing: 2rem;
+    font-weight: 500;
+}
+.title{
+    padding: 1rem 1rem;
+    font-size: 2rem;
+    text-align: center;
+    font-weight: 400;
+    color: var(--celeste);
+    
+}
+
+
+.about {
+    background: var(--arenablanca);
+}
+
+.about .row {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 2rem 1rem;
+}
+
+.project {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+}
+
+.project-image img {
+    height: 200px; /* Tamaño de la imagen */
+    width: 200px; /* Tamaño de la imagen */
+    border-radius: 50%; /* Hace la imagen circular */
+    object-fit: cover; /* Asegura que la imagen cubra todo el espacio sin deformarse */
+    margin-right: 2rem; /* Espaciado entre la imagen y el texto */
+}
+
+.project-content {
+    max-width: 60%; /* Ancho máximo del contenido para garantizar la disposición */
+}
+
+
+
+.project-content button {
+    height: 3.5rem;
+    width: 17rem;
+    background: var(--celeste);
+    color: #fff;
+    border: none;
+    border-radius: 5rem;
+    box-shadow: 0 .3rem 1rem rgba(0, 0, 0, .3);
+    cursor: pointer;
+    font-size: 2rem;
+    transition: .2s;
+}
+
+.project-content button:hover {
+    letter-spacing: .2rem;
+    opacity: .8;
+}
+
+
+.about{
+    background: var(--arenablanca);
+    
+}
+.about img{
+    border-radius: 50%;
+    
+}
+.about .row{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 1rem;
+
+}
+.about.row .image img{
+    height: 70vh;
+    width:50vw;
+    border-radius: 50%;
+}
+.about .row .content{
+    padding-left: 5rem;
+}
+.about .row .content .h3{
+   font-size: 3rem;
+   color: var(--azul);
+   padding: 1.5rem 1rem;
+}
+.about .row .content .p{
+    font-size: 1.6rem;
+    color: #999;
+    padding: 1rem 0;
+ }
+ .about .row .content button{
+  height: 3.5rem;
+  width:17rem;
+  background: var(--celeste);
+  color: #fff;
+  border: none;
+  border-radius: 5rem;
+  box-shadow: 0 .3rem 1rem rgba(0, 0, 0, .3);
+  cursor:pointer;
+  font-size: 2rem;
+  transition: .2s;
+  
+
+ }
+ .about .row .content button:hover {
+    letter-spacing: .2rem;
+    opacity: .8;
+
+ }
+
+ 
+
+
+
+.alumnos{
+    background: var(--azul);
+}
+.alumnos h1{
+    color: #fff;
+}
+.alumnos .card-container{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 2rem 0;
+}
+.alumnos .card-container .card{
+padding: 2rem;
+margin: 2rem;
+background: #fff;
+text-align: center;
+width: 28rem;
+box-shadow: 0 .3rem .5rem rgba(0, 0, 0, .3);
+
+
+}
+.alumnos .card-container .card img{
+    height: 30rem;
+    width: 100%;
+    object-fit: cover; 
+    transition: .2s;
+    filter: grayscale(0);
+    transition: .2s;
+}
+.alumnos .card-container .card:hover img {
+    filter: grayscale();
+}
+.alumnos .card-container .card h3{
+   color: var(--azul);
+   font-size: 2rem;
+   padding: .5rem 0;
+}
+.alumnos .card-container .card p{
+    font-size: 1.7rem;
+    color: #666;
+     
+ }
+ .alumnos .card-container .card .icons a{
+    font-size: 1.9rem;
+    padding: 1.5rem .5rem;
+    color:var(--azul); 
+ }
+ .alumnos .card-container .card .icons a :hover{
+    color:var(--celeste);  
+ }
+@media(max-width:768px){
+
+    html{
+    font-size: 55%;
+    }
+    header .fa-bars{
+        display: block;
+    }
+    header .navbar{
+        position: fixed;
+        top: -100rem; left: 0;
+        width: 100%;
+        background: var(--arena);
+        border-radius: 1rem;
+        opacity: 0;
+        transition: 2s linear;
+    }
+    header .navbar ul {
+        flex-flow: column;
+        padding: 2rem 0;
+    }
+    header .navbar ul li {
+        margin: 1rem 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    header .navbar ul li a{
+        font-size: 3rem;
+        display: block;
+    }
+    header .nav-toggle{
+        top: 5.5rem;
+        opacity: 1;
+    }
+    .about .row{
+        flex-flow: column-reverse;
+    }
+  
+    .about .row .image img{
+        height: 60vh;
+        width: 90vw;
+    }
+    .about .row .content {
+       padding: 0 2.rem;
+    }
+    
+
+
+
+
+}
+
+/* Sección de Tecnologías */
+#tecnologias {
+    background: var(--celeste);
+    padding: 5rem 0;
+}
+
+#tecnologias h2 {
+    font-size: 3.5rem;
+    color: #fff;
+    text-align: center;
+    padding-bottom: 3rem;
+    letter-spacing: .2rem;
+}
+
+#tecnologias .box-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.tecnologia {
+    height: 39rem;
+    width: 35rem;
+    background: #fff;
+    text-align: center;
+    border-radius: 1rem;
+    box-shadow: 0 .3rem .5rem rgba(0, 0, 0, 0.5);
+    margin: 1.5rem;
+    padding: 2rem;
+    transition: .2s;
+}
+
+.tecnologia img {
+    height: 8rem;
+    width: auto;
+    margin-bottom: 1rem;
+}
+
+.tecnologia h3 {
+    font-size: 2rem;
+    color: var(--azul);
+    margin: 1rem 0;
+}
+
+.tecnologia p {
+    font-size: 1.3rem;
+    color: #666;
+    margin-bottom: 1.5rem;
+}
+
+.tecnologia a {
+    color: var(--azul);
+    text-decoration: underline;
+}
+
+/* Footer */
+.footer {
+    background: #fff;
+    padding: 1rem 5rem; /* Reducción del padding para disminuir la altura */
+    color: #666;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer .credits {
+    text-align: left;
+    flex: 1;
+    display: flex; /* Ajuste para flexbox */
+    flex-wrap: wrap; /* Permite el envoltorio de elementos */
+    align-items: center; /* Alineación vertical de los elementos */
+    justify-content: start; /* Alineación horizontal de los elementos */
+}
+
+.footer .credits ul {
+    display: flex; /* Elementos de la lista en línea */
+    flex-wrap: wrap; /* Permite el envoltorio si no cabe en una sola línea */
+    list-style: none;
+    padding: 0;
+    margin-right: 2rem; /* Espaciado entre las listas y las alianzas */
+}
+
+.footer .credits ul li {
+    font-size: 1.3rem; /* Tamaño reducido para elementos de lista */
+    color: #666;
+    margin: 0 1rem 0 0; /* Margen derecho para separar los elementos */
+}
+
+.footer .credits ul ul {
+    margin-top: 0;
+    padding-left: 1.5rem;
+}
+
+.footer .credits ul ul li {
+    font-size: 1.2rem; /* Tamaño de fuente más pequeño para sub-listas */
+    color: #999;
+}
+
+.alliance-logos {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.alliance-logos img {
+    height: 5rem; /* Reducción del tamaño de los logos */
+    margin: 0 1rem;
+    transition: transform 0.2s;
+}
+
+.alliance-logos img:hover {
+    transform: scale(1.1);
+}
+
+/* Responsivo para secciones adicionales */
+@media (max-width: 768px) {
+    .footer {
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem 1rem;
+    }
+
+    .footer .credits, .footer .alliances {
+        width: 100%; /* Ajuste para que cada sección ocupe todo el ancho */
+        margin-bottom: 1rem;
+    }
+
+    .footer .credits ul {
+        flex-direction: column; /* Los elementos de la lista se apilan verticalmente en dispositivos móviles */
+    }
+
+    .footer .credits ul li {
+        margin: 0.5rem 0; /* Espaciado entre elementos de la lista */
+    }
+}
+
+/* Responsivo para secciones adicionales */
+@media (max-width: 768px) {
+    #tecnologias h2, .footer .credits p, .footer .alliances p {
+        font-size: 2.5rem;
+    }
+
+    .tecnologia {
+        width: 90%;
+        margin: 2rem auto;
+    }
+
+}
+

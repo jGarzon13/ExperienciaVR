@@ -25,7 +25,7 @@ html{
     overflow-x: hidden;
 }
 
-header{
+header {
     width: 96%;
     background: var(--arena);
     position: fixed;
@@ -34,58 +34,76 @@ header{
     border-radius: 5rem;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center; /* Cambia de space-between a center */
     padding: 1rem 2rem;
     z-index: 1000;
     transition: .2s;
 }
-.header-active{
-    top:0;
-    width:100%;
-    border-radius: 0;
-    box-shadow:0 .1rem .3rem rgba(0,0,0,.3)
-}
-header .navbar ul{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    list-style: none;
-}
-header .navbar ul li{
-    margin:0 1rem;
-}
-header .navbar ul li a{
-    font-size: 1.5rem;
-    color:var(--azul);
-    transition: .2s;    
-}
-header .navbar ul li .active,
-header .navbar ul li a:hover{
-     color: var(--celeste);
+
+header img {
+    height: 3rem; /* Ajusta la altura de la imagen según sea necesario */
+    width: auto; /* Mantiene la proporción de la imagen */
 }
 
-header .logo{
-    font-size: 2.5rem;
-    color:  var(--azul);
+.header-active {
+    top:0;
+    width:100%;
+    height: 10%;
+    border-radius: 0;
+    box-shadow:0 .1rem .3rem rgba(0,0,0,.3);
 }
+
+header .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header .navbar ul {
+    display: flex;
+    align-items: center;
+    list-style: none;
+}
+
+header .navbar ul li {
+    margin: 0 1rem;
+}
+
+header .navbar ul li a {
+    font-size: 1.5rem;
+    color: var(--azul);
+    transition: .2s;    
+}
+
+header .navbar ul li a.active,
+header .navbar ul li a:hover {
+    color: var(--celeste);
+}
+
+header .logo {
+    font-size: 2.5rem;
+    color: var(--azul);
+    margin-right: auto; /* Ajuste para alinear el logo a la izquierda */
+    margin-left: auto; /* Ajuste para centrar el logo */
+}
+
 header .logo img {
     padding: 0 .2rem;
     width: 7rem; /* Ajusta esta medida según lo grande que quieras el logo */
     height: auto; /* Esto asegura que la altura se ajuste automáticamente */
 }
 
-
-header .fa-bars{
+header .fa-bars {
     font-size: 3rem;
-    color:  var(--azul);
+    color: var(--azul);
     cursor: pointer;
     display: none;
     transition: .2s;
 }
-header.fa-times{
+
+header.fa-times {
     transform: rotate(180deg);
     color: var(--celeste);
-    
 }
 
 .home{
@@ -201,11 +219,6 @@ header.fa-times{
     
 }
 
-
-.about {
-    background: var(--arenablanca);
-}
-
 .about .row {
     display: flex;
     justify-content: center;
@@ -215,23 +228,29 @@ header.fa-times{
 
 .project {
     display: flex;
-    align-items: flex-start;
+    align-items: center; /* Cambiado a center para centrar verticalmente */
     margin-bottom: 2rem;
+    width: 100%; /* Asegurar que los proyectos ocupen el ancho completo */
+    max-width: 600px; /* Ancho máximo para los proyectos */
+    min-height: 250px; /* Altura mínima para asegurar alineación */
 }
 
 .project-image img {
-    height: 200px; /* Tamaño de la imagen */
-    width: 200px; /* Tamaño de la imagen */
-    border-radius: 50%; /* Hace la imagen circular */
-    object-fit: cover; /* Asegura que la imagen cubra todo el espacio sin deformarse */
-    margin-right: 2rem; /* Espaciado entre la imagen y el texto */
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 2rem;
 }
 
 .project-content {
-    max-width: 60%; /* Ancho máximo del contenido para garantizar la disposición */
+    flex-grow: 1; /* Permite que el contenido ocupe el espacio disponible */
+    max-width: 60%;
 }
 
-
+.project-content h3, .project-content h4, .project-content p, .project-content ul {
+    margin: 0; /* Asegura que no haya márgenes adicionales */
+}
 
 .project-content button {
     height: 3.5rem;
@@ -251,61 +270,30 @@ header.fa-times{
     opacity: .8;
 }
 
-
-.about{
-    background: var(--arenablanca);
-    
-}
-.about img{
-    border-radius: 50%;
-    
-}
-.about .row{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 2rem 1rem;
-
-}
-.about.row .image img{
-    height: 70vh;
-    width:50vw;
-    border-radius: 50%;
-}
-.about .row .content{
-    padding-left: 5rem;
-}
-.about .row .content .h3{
-   font-size: 3rem;
-   color: var(--azul);
-   padding: 1.5rem 1rem;
-}
-.about .row .content .p{
-    font-size: 1.6rem;
-    color: #999;
-    padding: 1rem 0;
- }
- .about .row .content button{
-  height: 3.5rem;
-  width:17rem;
-  background: var(--celeste);
-  color: #fff;
-  border: none;
-  border-radius: 5rem;
-  box-shadow: 0 .3rem 1rem rgba(0, 0, 0, .3);
-  cursor:pointer;
-  font-size: 2rem;
-  transition: .2s;
+@media (max-width: 768px) {
+    .about .row {
+        flex-direction: column;
+        align-items: center; /* Centrar contenido en dispositivos móviles */
+    }
   
-
- }
- .about .row .content button:hover {
-    letter-spacing: .2rem;
-    opacity: .8;
-
- }
-
- 
+    .project {
+        flex-direction: column;
+        align-items: center;
+        text-align: center; /* Centrar texto en dispositivos móviles */
+    }
+  
+    .project-image img {
+        height: 150px;
+        width: 150px;
+        margin-right: 0;
+        margin-bottom: 1rem; /* Añadir espacio debajo de la imagen */
+    }
+  
+    .project-content {
+        max-width: 100%;
+        text-align: center; /* Centrar contenido */
+    }
+}
 
 
 
@@ -396,18 +384,6 @@ box-shadow: 0 .3rem .5rem rgba(0, 0, 0, .3);
         top: 5.5rem;
         opacity: 1;
     }
-    .about .row{
-        flex-flow: column-reverse;
-    }
-  
-    .about .row .image img{
-        height: 60vh;
-        width: 90vw;
-    }
-    .about .row .content {
-       padding: 0 2.rem;
-    }
-    
 
 
 
@@ -472,56 +448,67 @@ box-shadow: 0 .3rem .5rem rgba(0, 0, 0, .3);
 /* Footer */
 .footer {
     background: #fff;
-    padding: 1rem 5rem; /* Reducción del padding para disminuir la altura */
+    padding: 2rem 5rem;
     color: #666;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column; /* Organiza las secciones en columna */
+    align-items: flex-start; /* Alinea los elementos al inicio verticalmente */
+    gap: 2rem; /* Espaciado entre secciones */
 }
 
 .footer .credits {
-    text-align: left;
-    flex: 1;
-    display: flex; /* Ajuste para flexbox */
-    flex-wrap: wrap; /* Permite el envoltorio de elementos */
-    align-items: center; /* Alineación vertical de los elementos */
-    justify-content: start; /* Alineación horizontal de los elementos */
+    display: flex;
+    flex-direction: column;
+    flex: 2;
 }
 
-.footer .credits ul {
-    display: flex; /* Elementos de la lista en línea */
-    flex-wrap: wrap; /* Permite el envoltorio si no cabe en una sola línea */
+.footer .credit-list p {
+    margin: 0;
+    font-weight: bold;
+}
+
+.footer .additional-references {
+    margin-top: 1rem;
+}
+
+.footer .references {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem; /* Espaciado entre elementos */
+}
+
+.footer .reference {
+    flex: 1;
+    min-width: 200px; /* Establece un ancho mínimo para las referencias */
+}
+
+.footer .reference strong {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.footer .reference ul {
     list-style: none;
     padding: 0;
-    margin-right: 2rem; /* Espaciado entre las listas y las alianzas */
+    margin: 0;
 }
 
-.footer .credits ul li {
-    font-size: 1.3rem; /* Tamaño reducido para elementos de lista */
+.footer .reference ul li {
+    font-size: 0.9rem; /* Tamaño de fuente reducido */
     color: #666;
-    margin: 0 1rem 0 0; /* Margen derecho para separar los elementos */
-}
-
-.footer .credits ul ul {
-    margin-top: 0;
-    padding-left: 1.5rem;
-}
-
-.footer .credits ul ul li {
-    font-size: 1.2rem; /* Tamaño de fuente más pequeño para sub-listas */
-    color: #999;
+    margin: 0.3rem 0; /* Espaciado vertical reducido */
 }
 
 .alliance-logos {
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    gap: 1rem; /* Espaciado entre los logos */
 }
 
 .alliance-logos img {
-    height: 5rem; /* Reducción del tamaño de los logos */
-    margin: 0 1rem;
+    height: 4rem; /* Tamaño ajustado para los logos */
     transition: transform 0.2s;
 }
 
@@ -532,24 +519,23 @@ box-shadow: 0 .3rem .5rem rgba(0, 0, 0, .3);
 /* Responsivo para secciones adicionales */
 @media (max-width: 768px) {
     .footer {
-        flex-direction: column;
-        text-align: center;
         padding: 2rem 1rem;
     }
 
     .footer .credits, .footer .alliances {
-        width: 100%; /* Ajuste para que cada sección ocupe todo el ancho */
-        margin-bottom: 1rem;
+        width: 100%;
     }
 
-    .footer .credits ul {
-        flex-direction: column; /* Los elementos de la lista se apilan verticalmente en dispositivos móviles */
+    .footer .references {
+        flex-direction: column; /* Organiza las referencias en columna en dispositivos móviles */
     }
 
-    .footer .credits ul li {
-        margin: 0.5rem 0; /* Espaciado entre elementos de la lista */
+    .footer .reference {
+        min-width: 100%; /* Ajusta el ancho mínimo en dispositivos móviles */
     }
 }
+
+
 
 /* Responsivo para secciones adicionales */
 @media (max-width: 768px) {

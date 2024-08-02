@@ -18,7 +18,6 @@
         <a-asset-item id="Modelo5" src="Modelos/Bichofue.glb"></a-asset-item>
         <a-asset-item id="Modelo6" src="Modelos/BienParado.glb"></a-asset-item>
 
-
         <img id="image1" src="Posters/1.jpg" />
         <img id="image2" src="Posters/2.jpg" />
         <img id="image3" src="Posters/3.jpg" />
@@ -178,6 +177,13 @@
             }
             this.lastPosition.copy(cameraPosition);
           }
+        }
+      });
+
+      // Redirigir al presionar Escape
+      window.addEventListener('keydown', function(evt) {
+        if (evt.code === 'Escape') {
+          window.location.href = 'Index.html';
         }
       });
     </script>

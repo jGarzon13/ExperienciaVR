@@ -13,10 +13,14 @@
 <body>
 
 <header>
-    <a href="#" class="logo"><img src="Recursos/logotipo-programa-blanco.png" >Resumen Verano Delfín</a>
+    <img src="Recursos/logotipo-programa-blanco.png" >
+    <a href="#" class="logo">Resumen de Estancia Verano Delfín 2024</a>
     <nav class="navbar">
         <ul>
-            <li><a href="Home" class="active">Home</a></li>
+            <li><a href="#home" class="active">Home</a></li>
+            <li><a href="#about">Proyectos</a></li>
+            <li><a href="#alumnos">Equipo</a></li>
+            <li><a href="#footer">Contacto</a></li>
         </ul>
 
     </nav>
@@ -67,8 +71,8 @@
 
 </section>
 
-<section class="about">
-    <h1 class="heading">Proyectos</h1>
+<section class="about" id="about">
+    <h1 class="heading">Proyecto Final</h1>
     <div class="row">
         <!-- Primer Proyecto: AvesExplore -->
         <div class="project">
@@ -85,10 +89,16 @@
                     <li><span>Fomentar la Conservación: </span>Inspírate para tomar acción y participar en la protección de estos seres vivos y sus hábitats.</li>
                     <li><span>Promover el Patrimonio Natural: </span>Explora y valora la biodiversidad que define nuestra región y fomenta el orgullo y responsabilidad en su conservación.</li>
                 </ul>
-                <a href="#"><button>Ver</button></a>
+                <a href="localizacion.html"><button>Ver</button></a>
             </div>
         </div>
+    </div>
+</section>
 
+
+<section class="about">
+    <h1 class="heading">Proyectos de Exploración</h1>
+    <div class="row">
         <!-- Segundo Proyecto: Reproductor VR (Exploración) -->
         <div class="project">
             <div class="project-image">
@@ -98,7 +108,7 @@
                 <h3>Reproductor VR (Exploración)</h3>
                 <h4><small>Por: Julian Camilo Garzon Toro.</small></h4>
                 <p>Consiste en el desarrollo de un espacio de Realidad Virtual interactivo diseñado para mejorar la experiencia de visualización de contenido multimedia.</p>
-                <a href="#"><button>Ver</button></a>
+                <a href=""><button>Ver</button></a>
             </div>
         </div>
 
@@ -132,24 +142,6 @@
 </section>
 
 
-<section id="tecnologias">
-    <h2>Uso de MindAR y A-Frame</h2>
-    <div class="box-container">
-        <div class="tecnologia">
-            <h3>MindAR</h3>
-            <img src="/Final/Recursos/MindAR.png" alt="MindAR">
-            <p>MindAR es una librería de JavaScript para desarrollar experiencias de Realidad Aumentada directamente en el navegador. Nos permite reconocer y rastrear imágenes, así como superponer elementos 3D en tiempo real.</p>
-            <p>Más información: <a href="https://hiukim.github.io/mind-ar-js-doc/" target="_blank">Documentación oficial de MindAR</a></p>
-        </div>
-        <div class="tecnologia">
-            <h3>A-Frame</h3>
-            <img src="/Final/Recursos/A-Frame_logo.png" alt="A-Frame">
-            <p>A-Frame es un framework web para construir experiencias de Realidad Virtual y Aumentada utilizando HTML. Con A-Frame, podemos crear escenas 3D de manera sencilla y eficiente, integrando elementos interactivos y dinámicos.</p>
-            <p>Más información: <a href="https://aframe.io/docs/" target="_blank">Documentación oficial de A-Frame</a></p>
-        </div>
-    </div>
-</section>
-
 
 <section id="alumnos" class="alumnos">
 <h1 class="heading">Equipo</h1>
@@ -162,8 +154,8 @@
         <h3>Julian Camilo Garzon Toro</h3>
         <p>Estudiante de la Universidad Autónoma de Occidente (Cali, Colombia), en séptimo semestre de Ingeniería Multimedia.</p>
         <div class="icons">
-            <a href="#" class="fab fa-github"></a>
-            <a href="#" class="fab fa-linkedin"></a>
+            <a href="https://github.com/jGarzon13" class="fab fa-github"></a>
+            <a href="https://www.linkedin.com/in/julian-camilo-garzon-toro-346949302/" class="fab fa-linkedin"></a>
         </div>
     </div>
     <div class="card">
@@ -171,8 +163,8 @@
         <h3>Isabel Cristina Zorrilla Murillo</h3>
         <p>Estudiante de la Universidad Autónoma de Occidente (Cali, Colombia), en séptimo semestre de Ingeniería Multimedia.</p>
         <div class="icons">
-            <a href="#" class="fab fa-github"></a>
-            <a href="#" class="fab fa-linkedin"></a>
+            <a href="https://github.com/izzzorry" class="fab fa-github"></a>
+            <a href="https://www.linkedin.com/in/isabel-cristina-zm-b199702b3/" class="fab fa-linkedin"></a>
         </div>
     </div>
 
@@ -180,63 +172,63 @@
 
 </section>
 
-
-
-
-<section class="footer">
+<section class="footer" id="footer">
     <div class="credits">
         <p>Créditos:</p>
-        <small><ul>
-          <li>Diseño y desarrollo: Julian Camilo Garzon Toro e Isabel Cristina Zorrilla M</li>
-          <li>Asistencia de IA: ChatGPT de OpenAI</li>
-          <li>Contenido adicional y referencias:</li>
-          <ul>
-            <li>
-              <strong>Unity</strong>: 
-              <ul>
-                <li>Documentación oficial: <a href="https://docs.unity3d.com/" target="_blank">Unity Documentation</a></li>
-                <li>"Unity 2021 Cookbook" de Matt Smith y Shaun Ferns</li>
-              </ul>
-            </li>
-            <li>
-              <strong>Unreal Engine</strong>:
-              <ul>
-                <li>Documentación oficial: <a href="https://docs.unrealengine.com/" target="_blank">Unreal Engine Documentation</a></li>
-                <li>"Unreal Engine VR Cookbook" de Mitch McCaffrey</li>
-              </ul>
-            </li>
-            <li>
-              <strong>ARKit</strong>:
-              <ul>
-                <li>Documentación oficial: <a href="https://developer.apple.com/arkit/" target="_blank">Apple Developer ARKit</a></li>
-                <li>"Mastering ARKit" de Patrick Felicia</li>
-              </ul>
-            </li>
-            <li>
-              <strong>ARCore</strong>:
-              <ul>
-                <li>Documentación oficial: <a href="https://developers.google.com/ar" target="_blank">Google ARCore</a></li>
-              </ul>
-            </li>
-            <li>
-              <strong>Microsoft HoloLens y Windows Mixed Reality</strong>:
-              <ul>
-                <li>Documentación oficial: <a href="https://docs.microsoft.com/en-us/hololens/" target="_blank">Microsoft HoloLens Documentation</a></li>
-                <li>"Programming for Mixed Reality" de Dawid Borycki</li>
-              </ul>
-            </li>
-          </ul>
-        </ul></small>
-      </div>
-      <div class="alliances">
-        <div class="alliance-logos">
-          <img src="/Final/Recursos/UAO.jpg" alt="Alianza 1" />
-          <img src="/Final/Recursos/Instituto Tecnológico Superior de Guanajuato.jpg" alt="Alianza 2" />
-          <img src="/Final/Recursos/Propuesta.png" alt="Alianza 3" />
+        <div class="credit-list">
+            <p>Diseño y desarrollo: Julian Camilo Garzon Toro e Isabel Cristina Zorrilla M</p>
+            <p>Asesor: Dr. Luis Armando Garcia de la Rosa</p>
+            <p>Asistencia de IA: ChatGPT de OpenAI</p>
+            <div class="additional-references">
+                <p><strong>Contenido adicional y referencias:</strong></p>
+                <div class="references">
+                    <div class="reference">
+                        <strong>Unity</strong>
+                        <ul>
+                            <li><a href="https://docs.unity3d.com/" target="_blank">Unity Documentation</a></li>
+                            <li>"Unity 2021 Cookbook" de Matt Smith y Shaun Ferns</li>
+                        </ul>
+                    </div>
+                    <div class="reference">
+                        <strong>Unreal Engine</strong>
+                        <ul>
+                            <li><a href="https://docs.unrealengine.com/" target="_blank">Unreal Engine Documentation</a></li>
+                            <li>"Unreal Engine VR Cookbook" de Mitch McCaffrey</li>
+                        </ul>
+                    </div>
+                    <div class="reference">
+                        <strong>ARKit</strong>
+                        <ul>
+                            <li><a href="https://developer.apple.com/arkit/" target="_blank">Apple Developer ARKit</a></li>
+                            <li>"Mastering ARKit" de Patrick Felicia</li>
+                        </ul>
+                    </div>
+                    <div class="reference">
+                        <strong>ARCore</strong>
+                        <ul>
+                            <li><a href="https://developers.google.com/ar" target="_blank">Google ARCore</a></li>
+                        </ul>
+                    </div>
+                    <div class="reference">
+                        <strong>Microsoft HoloLens y Windows Mixed Reality</strong>
+                        <ul>
+                            <li><a href="https://docs.microsoft.com/en-us/hololens/" target="_blank">Microsoft HoloLens Documentation</a></li>
+                            <li>"Programming for Mixed Reality" de Dawid Borycki</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-
+    </div>
+    <div class="alliances">
+        <div class="alliance-logos">
+            <img src="/Final/Recursos/UAO.jpg" alt="Alianza 1" />
+            <img src="/Final/Recursos/Instituto Tecnológico Superior de Guanajuato.jpg" alt="Alianza 2" />
+            <img src="/Final/Recursos/Propuesta.png" alt="Alianza 3" />
+        </div>
+    </div>
 </section>
+
 
 
     
